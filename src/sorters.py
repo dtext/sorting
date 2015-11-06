@@ -46,3 +46,29 @@ class Selectionsort(Sorter):
                 if l[j] < l[pmin]:
                     pmin = j
             l[i], l[pmin] = l[pmin], l[i]
+
+
+class Mergesort(Sorter):
+
+    def sorted(self, l: list):
+        # this implementation is not in-place
+        return self.sort(list(l))
+
+    def sort(self, l: list):
+        if len(l) < 2:
+            return l
+        mid = len(l) // 2
+        return self.merge(self.sort(l[:mid]), self.sort(l[mid:]))
+
+    def merge(self, left: list, right: list) -> list:
+        result = []
+        while len(left) > 0 and len(right) > 0:
+            if left[0] < right[0]:
+                result.append(left.pop(0))
+            else:
+                result.append(right.pop(0))
+        # add items from list that has elements left
+        rest = right if len(left) == 0 else left
+        for el in rest:
+            result.append(el)
+        return result
