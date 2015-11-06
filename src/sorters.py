@@ -74,6 +74,42 @@ class Mergesort(Sorter):
         return result
 
 
+class AltMergesort(Sorter):
+
+    def __init__(self):
+        self.li = []
+        self.tmp = []
+
+    def sort(self, l: list):
+        self.li = l
+        self.tmp = [None] * len(l)
+        self._sort(0, len(l))
+        return self.li
+
+    def _sort(self, s, e):
+        if e - s < 2:
+            return
+        mid = (e + s) // 2
+        self._sort(s, mid)
+        self._sort(mid, e)
+        self._merge(s, mid, e)
+        self._copy_back(s, e)
+
+    def _merge(self, ls, mid, re):
+        l, r = ls, mid
+        for j in range(ls, re):
+            if l < mid and (r >= re or self.li[l] <= self.li[r]):
+                self.tmp[j] = self.li[l]
+                l += 1
+            else:
+                self.tmp[j] = self.li[r]
+                r += 1
+
+    def _copy_back(self, s, e):
+        for i in range(s, e):
+            self.li[i] = self.tmp[i]
+
+
 class Quicksort(Sorter):
 
     def sorted(self, l: list):
