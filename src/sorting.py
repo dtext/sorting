@@ -4,5 +4,6 @@ SORTERS = [
     Bubblesort(),
     Insertionsort(),
     Selectionsort(),
-    Mergesort()
+    Mergesort(),
+    Quicksort()
 ]

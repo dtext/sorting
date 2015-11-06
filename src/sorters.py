@@ -72,3 +72,25 @@ class Mergesort(Sorter):
         for el in rest:
             result.append(el)
         return result
+
+
+class Quicksort(Sorter):
+
+    def sorted(self, l: list):
+        # this implementation is not in-place
+        return self.sort(l)
+
+    def sort(self, l: list):
+        if len(l) < 2:
+            return l
+        pivot = l[len(l)//2]
+        left, right, pivots = [], [], []
+        for x in l:
+            if x < pivot:
+                left.append(x)
+            elif x == pivot:
+                pivots.append(x)
+            else:
+                right.append(x)
+        return self.sort(left) + pivots + self.sort(right)
+
