@@ -35,3 +35,14 @@ class Insertionsort(Sorter):
                 l[j] = l[j-1]
                 j -= 1
             l[j] = cmp
+
+
+class Selectionsort(Sorter):
+
+    def sort(self, l: list):
+        for i in range(len(l)):
+            pmin = i
+            for j in range(i + 1, len(l)):
+                if l[j] < l[pmin]:
+                    pmin = j
+            l[i], l[pmin] = l[pmin], l[i]

@@ -2,5 +2,6 @@ from sorters import *
 
 SORTERS = [
     Bubblesort(),
-    Insertionsort()
+    Insertionsort(),
+    Selectionsort()
 ]
