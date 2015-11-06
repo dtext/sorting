@@ -13,6 +13,15 @@ class Sorter(metaclass=ABCMeta):
         return r
 
 
+class Timsort(Sorter):
+    
+    def sort(self, l: list):
+        l.sort()
+
+    def sorted(self, l: list):
+        return sorted(l)
+
+
 class Bubblesort(Sorter):
 
     def sort(self, l: list):
