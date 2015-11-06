@@ -1,11 +1,12 @@
 import unittest
 from random import random
+import sorters
 
 class SorterTest(unittest.TestCase):
 
     def setUp(self):
         self.sorters = [
-
+            sorters.Bubblesort()
         ]
 
     def test_empty(self):
@@ -14,7 +15,7 @@ class SorterTest(unittest.TestCase):
 
     def test_one(self):
         for sorter in self.sorters:
-            self.assertEqual(len(sorter.sorted["one"]), 1)
+            self.assertEqual(len(sorter.sorted(["one"])), 1)
 
     def test_number(self):
         l = [random() for i in range(100)]
