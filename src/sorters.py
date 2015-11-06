@@ -4,32 +4,34 @@ from abc import ABCMeta, abstractmethod
 class Sorter(metaclass=ABCMeta):
 
     @abstractmethod
-    def sorted(self, l: list) -> list:
+    def sort(self, l: list):
         pass
+
+    def sorted(self, l: list) -> list:
+        r = list(l)
+        self.sort(r)
+        return r
 
 
 class Bubblesort(Sorter):
 
-    def sorted(self, l: list) -> list:
-        r = list(l)
+    def sort(self, l: list):
         swapped = True
-        while(swapped):
+        while swapped:
             swapped = False
-            for i in range(len(r) - 1):
-                if r[i] > r[i+1]:
+            for i in range(len(l) - 1):
+                if l[i] > l[i+1]:
                     swapped = True
-                    r[i], r[i+1] = r[i+1], r[i]
-        return r
+                    l[i], l[i+1] = l[i+1], l[i]
+
 
 class Insertionsort(Sorter):
 
-    def sorted(self, l: list) -> list:
-        r = list(l)
-        for i in range(len(r)):
+    def sort(self, l: list):
+        for i in range(len(l)):
             j = i
-            cmp = r[i]
-            while j and r[j-1] > cmp:
-                r[j] = r[j-1]
+            cmp = l[i]
+            while j and l[j-1] > cmp:
+                l[j] = l[j-1]
                 j -= 1
-            r[j] = cmp
-        return r
+            l[j] = cmp
