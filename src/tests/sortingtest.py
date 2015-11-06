@@ -6,7 +6,8 @@ class SorterTest(unittest.TestCase):
 
     def setUp(self):
         self.sorters = [
-            sorters.Bubblesort()
+            sorters.Bubblesort(),
+            sorters.Insertionsort()
         ]
 
     def test_empty(self):

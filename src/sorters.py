@@ -21,3 +21,15 @@ class Bubblesort(Sorter):
                     r[i], r[i+1] = r[i+1], r[i]
         return r
 
+class Insertionsort(Sorter):
+
+    def sorted(self, l: list) -> list:
+        r = list(l)
+        for i in range(len(r)):
+            j = i
+            cmp = r[i]
+            while j and r[j-1] > cmp:
+                r[j] = r[j-1]
+                j -= 1
+            r[j] = cmp
+        return r
