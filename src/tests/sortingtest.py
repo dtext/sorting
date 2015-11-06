@@ -2,6 +2,7 @@ import unittest
 from random import random
 from sorting import SORTERS
 
+
 class SorterTest(unittest.TestCase):
 
     def test_empty(self):
